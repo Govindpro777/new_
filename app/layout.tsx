@@ -1,5 +1,4 @@
-import type React from "react"
-import type { Metadata } from "next"
+import React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
@@ -7,17 +6,17 @@ import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "XpertBuddy - AI-Powered Expert Matching",
   description: "Connect with experts for your projects and appointments",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -28,7 +27,5 @@ export default function RootLayout({
     </html>
   )
 }
-
-
 
 import './globals.css'

@@ -1,31 +1,31 @@
 import React from 'react';
+import Image from 'next/image';
+import trustpilotImage from "@/public/Rectangle path.png"
+import sitejabberImage from "@/public/logo_light.1729398987 1.png"
+import expertBuddyImage from "@/public/unnamed 2.png"
 
-const ReviewRatings = ({ 
-  trustpilotImage = null, 
-  sitejabberImage = null, 
-  expertBuddyImage = null 
-}) => {
+const ReviewRatings = () => {
   return (
-    <div className="bg-gray-50 rounded-lg px-6 py-4 flex items-center justify-between max-w-4xl mx-auto shadow-sm">
-      <div className="text-gray-700 font-medium text-sm">
-        150+ Students Trusted Us To Write Their Papers
+    <div className="bg-white rounded-lg px-8 py-6 flex items-center justify-between max-w-4xl mx-auto shadow-sm mt-12 mb-12">
+      <div className="text-gray-700 font-medium text-base">
+        150+ Students 
+        <br />
+        Trusted Us To Write Their Papers
       </div>
       
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-8">
         {/* Trustpilot Section */}
-        <div className="flex items-center space-x-2">
-          {trustpilotImage ? (
-            <img 
-              src={trustpilotImage} 
-              alt="Trustpilot Logo" 
-              className="h-6 w-6"
-            />
-          ) : (
-            <div className="h-6 w-6 bg-gray-200 rounded-full"></div>
-          )}
-          <div className="flex items-center">
-            <span className="text-sm font-semibold mr-1">Trustpilot</span>
-            <div className="flex text-yellow-500">
+        <div className="flex items-center space-x-3">
+          <Image 
+            src={trustpilotImage} 
+            alt="Trustpilot Logo" 
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold mb-1">Trustpilot</span>
+            <div className="flex text-yellow-500 mb-1">
               {[1,2,3,4,5].map((star) => (
                 <svg 
                   key={star} 
@@ -37,26 +37,26 @@ const ReviewRatings = ({
                 >
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
+                
               ))}
+               <span className="text-sm text-gray-600 ml-1">4.7</span>
             </div>
-            <span className="text-sm ml-1 text-gray-600">4.7</span>
+           
           </div>
         </div>
 
         {/* Sitejabber Section */}
-        <div className="flex items-center space-x-2">
-          {sitejabberImage ? (
-            <img 
-              src={sitejabberImage} 
-              alt="Sitejabber Logo" 
-              className="h-6 w-6"
-            />
-          ) : (
-            <div className="h-6 w-6 bg-gray-200 rounded-full"></div>
-          )}
-          <div className="flex items-center">
-            <span className="text-sm font-semibold mr-1">Sitejabber</span>
-            <div className="flex text-yellow-500">
+        <div className="flex items-center space-x-3">
+          <Image 
+            src={sitejabberImage} 
+            alt="Sitejabber Logo" 
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold mb-1">Sitejabber</span>
+            <div className="flex text-yellow-500 mb-1">
               {[1,2,3,4,5].map((star) => (
                 <svg 
                   key={star} 
@@ -69,25 +69,23 @@ const ReviewRatings = ({
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               ))}
+            <span className="text-sm text-gray-600 ml-1">4.0</span>
             </div>
-            <span className="text-sm ml-1 text-gray-600">4.0</span>
           </div>
         </div>
 
         {/* ExpertBuddy Section */}
-        <div className="flex items-center space-x-2">
-          {expertBuddyImage ? (
-            <img 
-              src={expertBuddyImage} 
-              alt="ExpertBuddy Logo" 
-              className="h-6 w-6"
-            />
-          ) : (
-            <div className="h-6 w-6 bg-gray-200 rounded-full"></div>
-          )}
-          <div className="flex items-center">
-            <span className="text-sm font-semibold mr-1">ExpertBuddy</span>
-            <div className="flex text-yellow-500">
+        <div className="flex items-center space-x-3">
+          <Image 
+            src={expertBuddyImage} 
+            alt="ExpertBuddy Logo" 
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold mb-1">ExpertBuddy</span>
+            <div className="flex text-yellow-500 mb-1">
               {[1,2,3,4,5].map((star) => (
                 <svg 
                   key={star} 
@@ -100,8 +98,8 @@ const ReviewRatings = ({
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               ))}
+            <span className="text-sm text-gray-600 ml-1">5.0</span>
             </div>
-            <span className="text-sm ml-1 text-gray-600">5.0</span>
           </div>
         </div>
       </div>

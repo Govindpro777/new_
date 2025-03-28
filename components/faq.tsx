@@ -5,24 +5,24 @@ import { ChevronDown, ChevronUp } from "lucide-react"
 
 const faqs = [
   {
-    question: "How does the AI matching system work?",
+    question: "Can you help me with my homework in less than 24 hours?",
     answer:
-      "Our AI analyzes your requirements and preferences to match you with the most suitable expert. It considers expertise, availability, ratings, and past success with similar cases.",
+      "Our name 24HourAnswers means you can submit work 24 hours a day - it doesn't mean we can help you master what you need to know in 24 hours. If you make arrangements in advance, and if you are a very fast learner, then yes, we may be able to help you achieve your goals in 24 hours. Remember, high quality, customized help that's tailored around the needs of each individual student takes time to achieve. You deserve nothing less than the best, so give us the time we need to give you the best.",
   },
   {
-    question: "What if I'm not satisfied with my expert?",
+    question: "Can you help me with my exam/quiz/test?",
     answer:
-      "If you're not completely satisfied with your expert, you can request a different match or get a refund according to our satisfaction guarantee policy.",
+      "Yes, we can help you with your exam/quiz/test. We have experts who are experts in their field and they can help you with your exam/quiz/test. We can help you with your exam/quiz/test in less than 24 hours.",
   },
   {
-    question: "How much does it cost to use Appointy?",
+    question: "How much will it cost?",
     answer:
       "Appointy offers various pricing plans starting from free basic matching to premium subscriptions with additional features. Expert fees vary based on their expertise and experience.",
   },
   {
-    question: "Can I reschedule my appointment?",
+    question: "What kind of payments do you accept?",
     answer:
-      "Yes, you can reschedule your appointment up to 24 hours before the scheduled time without any penalty. Changes made with less notice may incur a rescheduling fee.",
+      "Yes, we can help you with your exam/quiz/test. We have experts who are experts in their field and they can help you with your exam/quiz/test. We can help you with your exam/quiz/test in less than 24 hours.",
   },
 ]
 
