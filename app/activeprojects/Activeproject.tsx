@@ -6,6 +6,8 @@ import { Calendar } from "@/components/ui/calendar"
 import img1 from "@/public/Group 316127895.png"
 import Image from 'next/image';
 import crown from "@/public/Vector.png"
+import img2 from "@/public/Group 316127895 (3).png"
+import img3 from "@/public/Group 316127895 (2).png"
 
 type ProjectStatus = 'At the Auction' | 'Drafts' | 'Revision' | 'In Process' | 'Completed' | 'Under warranty';
 
@@ -50,7 +52,7 @@ const ActiveProjects: React.FC = () => {
         expert: {
           name: 'Hillary A',
           price: '50',
-          avatarUrl: '/api/placeholder/40/40'
+          avatarUrl: img2
         }
       }
     },
@@ -66,7 +68,7 @@ const ActiveProjects: React.FC = () => {
         expert: {
           name: 'Hillary A',
           price: '50',
-          avatarUrl: '/api/placeholder/40/40'
+          avatarUrl: img3
         }
       }
     },
@@ -96,7 +98,7 @@ const ActiveProjects: React.FC = () => {
         expert: {
           name: 'Hillary A',
           price: '50',
-          avatarUrl: '/api/placeholder/40/40'
+          avatarUrl: img2
         }
       }
     },
@@ -118,40 +120,40 @@ const ActiveProjects: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className="bg-gray-100 min-h-screen p-3 sm:p-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
         {/* Left side - Main content */}
         <div className="flex-1">
-          <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex flex-col items-center">
+          <div className="bg-white rounded-lg p-4 sm:p-6 shadow-sm mb-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
+              <div className="flex flex-col items-center mb-4 sm:mb-0">
                 <Image src={crown} alt="Crown" className="w-6 h-6 -left-20 relative" />
-                <h1 className="text-2xl font-bold ml-1">Active Projects</h1>
+                <h1 className="text-xl sm:text-2xl font-bold ml-1">Active Projects</h1>
               </div>
               <a href="#" className="text-sm text-gray-600 hover:underline">View all projects</a>
             </div>
             
             <div className="overflow-x-auto">
               <div className="flex border-b mb-6 overflow-x-auto">
-                <button className="py-2 px-4 font-medium border-b-2 border-purple-600 text-purple-600 bg-purple-50 rounded-t-lg mr-1 whitespace-nowrap">
+                <button className="py-2 px-3 sm:px-4 font-medium border-b-2 border-purple-600 text-purple-600 bg-purple-50 rounded-t-lg mr-1 whitespace-nowrap text-sm sm:text-base">
                   All (7)
                 </button>
-                <button className="py-2 px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap">
+                <button className="py-2 px-3 sm:px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap text-sm sm:text-base">
                   At the Auction (1)
                 </button>
-                <button className="py-2 px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap">
+                <button className="py-2 px-3 sm:px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap text-sm sm:text-base">
                   In Process (1)
                 </button>
-                <button className="py-2 px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap">
+                <button className="py-2 px-3 sm:px-4 text-gray-500 hover:bg-gray-50 mr-1 whitespace-nowrap text-sm sm:text-base">
                   Under Warranty (1)
                 </button>
-                <button className="py-2 px-4 text-gray-500 hover:bg-gray-50 whitespace-nowrap">
+                <button className="py-2 px-3 sm:px-4 text-gray-500 hover:bg-gray-50 whitespace-nowrap text-sm sm:text-base">
                   Completed (2)
                 </button>
               </div>
 
-              <div className="flex mb-6">
-                <div className="relative flex-grow mr-2">
+              <div className="flex flex-col sm:flex-row mb-6">
+                <div className="relative flex-grow mb-2 sm:mb-0 sm:mr-2">
                   <input
                     type="text"
                     placeholder="Search by Name, Description, or Tutor Name"
@@ -161,7 +163,7 @@ const ActiveProjects: React.FC = () => {
                     <Search size={18} />
                   </div>
                 </div>
-                <button className="px-6 py-2 bg-gray-900 text-white rounded-lg">
+                <button className="px-6 py-2 bg-gray-900 text-white rounded-lg w-full sm:w-auto">
                   Search
                 </button>
               </div>
@@ -214,7 +216,9 @@ const ActiveProjects: React.FC = () => {
             </div>
           </div>
           <div className="mt-4 bg-white rounded-lg shadow-sm p-4">
-            <Calendar />
+            <div className="w-full overflow-x-auto">
+              <Calendar />
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-
 import React from 'react';
+import { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
 // Define types for project data
 interface ProjectFile {
@@ -16,7 +17,7 @@ type BidType = {
   expert: {
     name: string;
     price: string;
-    avatarUrl: string;
+    avatarUrl: string | StaticImageData;
   }
 };
 
@@ -84,13 +85,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div className="bg-white rounded-lg mb-4 shadow-sm relative border">
-      <div className="flex justify-between items-start p-4">
-        <div className="flex flex-col space-y-4">
+      <div className="flex flex-col md:flex-row justify-between items-start p-4">
+        <div className="flex flex-col space-y-4 w-full md:w-auto mb-6 md:mb-0">
           {/* Status badge */}
           <StatusBadge status={status} count={statusCount} />
           
           {/* Project info section */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <div className="flex items-center mb-1">
                 <svg className="w-5 h-5 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,9 +107,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             <div>
               <div className="flex items-center mb-1">
-                <svg className="w-5 h-5 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {/* <svg className="w-5 h-5 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeWidth="2" d="M10 15v4a3 3 0 003 3l4-9V2H5.72a2 2 0 00-2 1.7l-1.38 9a2 2 0 002 2.3H10z" />
-                </svg>
+                </svg> */}
                 <span className="text-gray-600">ID</span>
               </div>
               <div className="text-gray-800 ml-7">{id}</div>
@@ -148,28 +149,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
         
         {/* Right side - Bid information */}
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-start md:items-end w-full md:w-auto">
           {/* Bid information */}
           {isExpertBid ? (
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-start md:items-end w-full">
               <div className="text-lg font-semibold text-purple-900 mb-1">Expert</div>
               <div className="flex items-center mt-4">
                 <div className="mr-2 text-right">
                   <div className="font-medium text-lg">{bid.expert.name}</div>
                   <div className="text-purple-600 font-medium">${bid.expert.price}</div>
                 </div>
-                <img 
+                <Image 
                   src={bid.expert.avatarUrl} 
                   alt={bid.expert.name} 
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full"
                 />
               </div>
-              <button className="mt-4 bg-gray-900 text-white px-6 py-3 rounded-full font-medium">
+              <button className="mt-4 bg-gray-900 text-white px-6 py-3 rounded-full font-medium w-full md:w-auto">
                 Open Chat
               </button>
             </div>
           ) : (
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-start md:items-end w-full">
               <div className="mb-1 text-lg font-semibold text-purple-900">{bid.count} Bid</div>
               <div className="text-gray-600">Price</div>
               <div className="text-3xl font-semibold mt-1">{bid.price}</div>
@@ -181,7 +184,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   Best Offer
                 </div>
               )}
-              <button className="mt-4 bg-purple-600 text-white px-6 py-3 rounded-full font-medium">
+              <button className="mt-4 bg-purple-600 text-white px-6 py-3 rounded-full font-medium w-full md:w-auto">
                 Check the Offers
               </button>
             </div>

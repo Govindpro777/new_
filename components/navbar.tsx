@@ -8,92 +8,99 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/public/Group 316127881.png";
 import USD from "@/public/Frame 1171284552.png";
+import WelcomeModal from "@/components/welcomeForm";
 
 // Signup Modal Component
 function SignupModal({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("wadewarren@gmail.com")
   const [isUserAgreementAccepted, setIsUserAgreementAccepted] = useState(false)
   const [isMarketingAccepted, setIsMarketingAccepted] = useState(false)
+  const [showWelcome, setShowWelcome] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle signup logic
     console.log("Signup submitted", { email, isUserAgreementAccepted, isMarketingAccepted })
+    setShowWelcome(true)
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl w-full max-w-[480px] p-6 relative mx-4">
-        <button 
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-          aria-label="Close"
-          onClick={onClose}
-        >
-          <X className="h-5 w-5" />
-        </button>
-
-        <h2 className="text-xl font-semibold text-center mb-6 mt-2">Sign Up XpertBuddy</h2>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="email" className="sr-only">Email</label>
-            <input 
-              id="email"
-              type="email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="w-full px-3 py-2 border rounded-md"
-              required 
-            />
-          </div>
-
-          <div className="space-y-2">
-            <div className="flex items-start sm:items-center">
-              <input 
-                id="user-agreement" 
-                type="checkbox" 
-                checked={isUserAgreementAccepted}
-                onChange={() => setIsUserAgreementAccepted(!isUserAgreementAccepted)}
-                className="mr-2 mt-1 sm:mt-0" 
-              />
-              <label htmlFor="user-agreement" className="text-sm">
-                I accept 
-                <span className="text-[#8a20b9]"> User Agreement</span>
-              </label>
-            </div>
-
-            <div className="flex items-start sm:items-center mt-2">
-              <input 
-                id="marketing-messages" 
-                type="checkbox" 
-                checked={isMarketingAccepted}
-                onChange={() => setIsMarketingAccepted(!isMarketingAccepted)}
-                className="mr-2 mt-1 sm:mt-0" 
-              />
-              <label htmlFor="marketing-messages" className="text-sm">
-                I don't want to receive marketing messages from 
-                <span className="text-[#8a20b9]"> XpertBuddy</span>
-              </label>
-            </div>
-          </div>
-
+    <>
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-xl w-full max-w-[480px] p-6 relative mx-4">
           <button 
-            type="submit" 
-            className="w-full sm:w-[150px] bg-[#8a20b9] text-white py-2 rounded-3xl hover:bg-[#7a10a9] transition-colors"
-            disabled={!isUserAgreementAccepted}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            aria-label="Close"
+            onClick={onClose}
           >
-            Sign Up
+            <X className="h-5 w-5" />
           </button>
-        </form>
 
-        <div className="text-center mt-4 mb-2">
-          <p className="text-sm">
-            Already registered? <a href="#" className="text-[#8a20b9] font-semibold">Log In</a>
-          </p>
+          <h2 className="text-xl font-semibold text-center mb-6 mt-2">Sign Up XpertBuddy</h2>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="email" className="sr-only">Email</label>
+              <input 
+                id="email"
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full px-3 py-2 border rounded-md"
+                required 
+              />
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-start sm:items-center">
+                <input 
+                  id="user-agreement" 
+                  type="checkbox" 
+                  checked={isUserAgreementAccepted}
+                  onChange={() => setIsUserAgreementAccepted(!isUserAgreementAccepted)}
+                  className="mr-2 mt-1 sm:mt-0" 
+                />
+                <label htmlFor="user-agreement" className="text-sm">
+                  I accept 
+                  <span className="text-[#8a20b9]"> User Agreement</span>
+                </label>
+              </div>
+
+              <div className="flex items-start sm:items-center mt-2">
+                <input 
+                  id="marketing-messages" 
+                  type="checkbox" 
+                  checked={isMarketingAccepted}
+                  onChange={() => setIsMarketingAccepted(!isMarketingAccepted)}
+                  className="mr-2 mt-1 sm:mt-0" 
+                />
+                <label htmlFor="marketing-messages" className="text-sm">
+                  I don't want to receive marketing messages from 
+                  <span className="text-[#8a20b9]"> XpertBuddy</span>
+                </label>
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              className="w-full sm:w-[150px] bg-[#8a20b9] text-white py-2 rounded-3xl hover:bg-[#7a10a9] transition-colors"
+              disabled={!isUserAgreementAccepted}
+            >
+              Sign Up
+            </button>
+          </form>
+
+          <div className="text-center mt-4 mb-2">
+            <p className="text-sm">
+              Already registered? <a href="#" className="text-[#8a20b9] font-semibold">Log In</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+
+      {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
+    </>
   )
 }
 
@@ -164,11 +171,21 @@ export default function Navbar() {
           <div className="md:hidden bg-white border-t border-gray-100">
             <div className="px-4 py-4">
               <nav className="flex flex-col gap-4">
-                <Link href="/" className={`text-sm ${isActive("/") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Find Tutor</Link>
-                <Link href="/homework" className={`text-sm ${isActive("/homework") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>HomeWork</Link>
-                <Link href="/experts" className={`text-sm ${isActive("/experts") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}> Refer a friend</Link>
-                <Link href="/projects" className={`text-sm ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Projects</Link>
-                <Link href="/activeprojects" className={`text-sm ${isActive("/activeprojects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Active Projects</Link>
+                <Link href="/" className={`text-sm ${isActive("/") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>
+                Find Tutor
+                </Link>
+                <Link href="" className={`text-sm ${isActive("") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>
+                HomeWork
+                </Link>
+                <Link href="" className={`text-sm ${isActive("") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>
+                 Refer a friend
+                 </Link>
+                <Link href="/projects" className={`text-sm ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>
+                Projects
+                </Link>
+                <Link href="/activeprojects" className={`text-sm ${isActive("/activeprojects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>
+                Active Projects
+                </Link>
               </nav>
             </div>
           </div>
@@ -180,241 +197,3 @@ export default function Navbar() {
   );
 }
 
-// "use client";
-
-// import { useState } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { usePathname } from "next/navigation";
-// import { Button } from "@/components/ui/button";
-// import { Menu, X } from "lucide-react";
-// import logo from "@/public/Group 316127881.png";
-// import USD from "@/public/Frame 1171284552.png";
-
-// // Signup Modal Component
-// function SignupModal({ onClose }: { onClose: () => void }) {
-//   const [email, setEmail] = useState("wadewarren@gmail.com")
-//   const [isUserAgreementAccepted, setIsUserAgreementAccepted] = useState(false)
-//   const [isMarketingAccepted, setIsMarketingAccepted] = useState(false)
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault()
-//     // Handle signup logic
-//     console.log("Signup submitted", { email, isUserAgreementAccepted, isMarketingAccepted })
-//   }
-
-//   return (
-//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-//       <div className="bg-white rounded-xl w-[480px] p-6 relative ">
-//         <button 
-//           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-//           aria-label="Close"
-//           onClick={onClose}
-//         >
-//           <X className="h-5 w-5" />
-//         </button>
-
-//         <h2 className="text-xl font-semibold text-center mb-6 mt-2">Sign Up XpertBuddy</h2>
-
-//         <form onSubmit={handleSubmit} className="space-y-4">
-//           <div className="space-y-2">
-//             <label htmlFor="email" className="sr-only">Email</label>
-//             <input 
-//               id="email"
-//               type="email" 
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               placeholder="Email"
-//               className="w-full px-3 py-2 border rounded-md"
-//               required 
-//             />
-//           </div>
-
-//           <div className="space-y-2">
-//             <div className="flex items-center">
-//               <input 
-//                 id="user-agreement" 
-//                 type="checkbox" 
-//                 checked={isUserAgreementAccepted}
-//                 onChange={() => setIsUserAgreementAccepted(!isUserAgreementAccepted)}
-//                 className="mr-2" 
-//               />
-//               <label htmlFor="user-agreement" className="text-sm">
-//                 I accept 
-//                 <span className="text-[#8a20b9]"> User Agreement</span>
-//               </label>
-//             </div>
-
-//             <div className="flex items-center mt-2">
-//               <input 
-//                 id="marketing-messages" 
-//                 type="checkbox" 
-//                 checked={isMarketingAccepted}
-//                 onChange={() => setIsMarketingAccepted(!isMarketingAccepted)}
-//                 className="mr-2" 
-//               />
-//               <label htmlFor="marketing-messages" className="text-sm ">
-//                 I don't want to receive marketing messages from 
-//                 <span className="text-[#8a20b9]"> XpertBuddy</span>
-//               </label>
-//             </div>
-//           </div>
-
-//           <button 
-//             type="submit" 
-//             className="w-[150px] bg-[#8a20b9] text-white py-2 rounded-3xl hover:bg-[#7a10a9] transition-colors"
-//             disabled={!isUserAgreementAccepted}
-//           >
-//             Sign Up
-//           </button>
-//         </form>
-
-//         <div className="text-center mt-4 mb-2">
-//           <p className="text-sm">
-//             Already registered? <a href="#" className="text-[#8a20b9] font-semibold">Log In</a>
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// // Navbar Component
-// export default function Navbar() {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [showSignup, setShowSignup] = useState(false);
-//   const pathname = usePathname();
-
-//   const handleSignupClick = () => {
-//     setShowSignup(true);
-//     setIsMenuOpen(false);
-//   };
-
-//   const isActive = (path: string) => pathname === path;
-
-//   return (
-//     <>
-//       <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
-//         <div className="mx-auto px-4 py-4 flex items-center justify-between">
-//           <Link href="/">
-//             <Image src={logo} alt="XpertBuddy Logo" width={100} height={40} className="w-26 h-10 ml-12" />
-//           </Link>
-
-//           <nav className="hidden md:flex items-center gap-6">
-//             <Link href="/" className={`text-md ${isActive("/") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Find Tutor</Link>
-//             <Link href="/projects" className={`text-md ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>HomeWork</Link>
-//             <Link href="/experts" className={`text-sm ${isActive("/experts") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>
-//               <Image src={USD} alt="XpertBuddy Logo" width={100} height={40} className="w-17 h-8" />
-//             </Link>
-//             <Link
-//               href="/pricing"
-//               className={`text-md px-3 py-1 border border-[#a414d5] rounded-lg transition ${isActive("/pricing")
-//                 ? "text-[#a414d5] font-medium bg-[#f9f0ff]"
-//                 : "text-[#16192c] hover:text-[#a414d5] hover:bg-[#f9f0ff]"
-//                 }`}
-//             >
-//               Refer a friend
-//             </Link>
-//             <Link href="/projects" className={`text-md ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Projects</Link>
-//             <Link href="/activeprojects" className={`text-md ${isActive("/activeprojects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Active Projects</Link>
-//           </nav>
-
-//           <div className="flex items-center gap-3">
-//             <Button variant="outline" className="text-sm hidden md:flex" onClick={handleSignupClick}>
-//               Log in
-//             </Button>
-//             <Button className="bg-[#a414d5] hover:bg-[#8a0fb3] text-white text-sm" onClick={handleSignupClick}>
-//               Sign Up
-//             </Button>
-//             <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-//               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {isMenuOpen && (
-//           <div className="md:hidden bg-white border-t border-gray-100">
-//             <div className="container mx-auto px-4 py-4">
-//               <nav className="flex flex-col gap-4">
-//                 <Link href="/" className={`text-sm ${isActive("/") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Find Tutor</Link>
-//                 <Link href="/projects" className={`text-sm ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>HomeWork</Link>
-//                 <Link href="/experts" className={`text-sm ${isActive("/experts") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}> Refer a friend</Link>
-//                 <Link href="/projects" className={`text-sm ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Projects</Link>
-//                 <Link href="/activeprojects" className={`text-sm ${isActive("/activeprojects") ? "text-[#a414d5] font-medium" : "text-[#16192c]"}`} onClick={() => setIsMenuOpen(false)}>Active Projects</Link>
-//               </nav>
-//             </div>
-//           </div>
-//         )}
-//       </header>
-
-//       {showSignup && <SignupModal onClose={() => setShowSignup(false)} />}
-//     </>
-//   );
-// }
-
-// "use client";
-
-// import { useState } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { usePathname } from "next/navigation";
-// import { Button } from "@/components/ui/button";
-// import { Menu, X } from "lucide-react";
-// import logo from "@/public/Group 316127881.png";
-// import USD from "@/public/Frame 1171284552.png";
-
-// export default function Navbar() {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [showSignup, setShowSignup] = useState(false);
-//   const pathname = usePathname();
-
-//   const handleSignupClick = () => {
-//     setShowSignup(true);
-//     setIsMenuOpen(false);
-//   };
-
-//   const isActive = (path: string) => pathname === path;
-
-//   return (
-//     <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
-//       <div className="mx-auto px-4 py-4 flex items-center justify-between">
-//         <Link href="/">
-//           <Image src={logo} alt="XpertBuddy Logo" width={100} height={40} className="w-26 h-10" />
-//         </Link>
-
-//         {/* Desktop Navigation */}
-//         <nav className="hidden md:flex items-center gap-6">
-//           <Link href="/" className={`text-md ${isActive("/") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Find Tutor</Link>
-//           <Link href="/projects" className={`text-md ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>HomeWork</Link>
-//           <Link href="/pricing" className={`text-md px-3 py-1 border border-[#a414d5] rounded-lg ${isActive("/pricing") ? "text-[#a414d5] font-medium bg-[#f9f0ff]" : "text-[#16192c] hover:text-[#a414d5] hover:bg-[#f9f0ff]"}`}>Refer a friend</Link>
-//           <Link href="/projects" className={`text-md ${isActive("/projects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Projects</Link>
-//           <Link href="/activeprojects" className={`text-md ${isActive("/activeprojects") ? "text-[#a414d5] font-medium" : "text-[#16192c] hover:text-[#a414d5]"}`}>Active Projects</Link>
-//         </nav>
-
-//         {/* Mobile Menu Button */}
-//         <div className="flex items-center gap-3">
-//           <Button variant="outline" className="text-sm hidden md:flex" onClick={handleSignupClick}>Log in</Button>
-//           <Button className="bg-[#a414d5] hover:bg-[#8a0fb3] text-white text-sm hidden md:flex" onClick={handleSignupClick}>Sign Up</Button>
-//           <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-//             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Mobile Navigation Menu */}
-//       {isMenuOpen && (
-//         <div className="md:hidden bg-white border-t border-gray-100 py-4 px-6 absolute w-full left-0 right-0 top-full shadow-lg">
-//           <nav className="flex flex-col gap-4 text-center">
-//             <Link href="/" className="text-sm text-[#16192c] hover:text-[#a414d5]" onClick={() => setIsMenuOpen(false)}>Find Tutor</Link>
-//             <Link href="/projects" className="text-sm text-[#16192c] hover:text-[#a414d5]" onClick={() => setIsMenuOpen(false)}>HomeWork</Link>
-//             <Link href="/pricing" className="text-sm text-[#16192c] hover:text-[#a414d5]" onClick={() => setIsMenuOpen(false)}>Refer a Friend</Link>
-//             <Link href="/projects" className="text-sm text-[#16192c] hover:text-[#a414d5]" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-//             <Link href="/activeprojects" className="text-sm text-[#16192c] hover:text-[#a414d5]" onClick={() => setIsMenuOpen(false)}>Active Projects</Link>
-//             <Button variant="outline" className="text-sm w-full mt-4" onClick={handleSignupClick}>Log in</Button>
-//             <Button className="bg-[#a414d5] hover:bg-[#8a0fb3] text-white text-sm w-full" onClick={handleSignupClick}>Sign Up</Button>
-//           </nav>
-//         </div>
-//       )}
-//     </header>
-//   );
-// }
