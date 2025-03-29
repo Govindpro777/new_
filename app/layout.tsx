@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "XpertBuddy - AI-Powered Expert Matching",
+  title: "Expert Buddy ",
   description: "Connect with experts for your projects and appointments",
   generator: 'v0.dev'
 }

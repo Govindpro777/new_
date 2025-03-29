@@ -16,6 +16,9 @@ import { Switch } from '@/components/ui/switch';
 import ReviewRatings from "@/components/Review"
 import Howworks from "@/components/how_works"
 import Experts from "@/components/Experts"
+import Offer from "@/components/Offer"
+import FeatureCard from "@/components/FeatureCard"
+import ReviewCard from "@/components/ReviewCard"
 
 export default function Home() {
   const [projectDescription, setProjectDescription] = useState('');
@@ -43,7 +46,7 @@ export default function Home() {
         }}
       >
        
-        <div className="md:w-1/2 space-y-6 ml-56 ">
+        <div className="md:w-1/2 space-y-6 ml-32 ">
           <h1 className="text-4xl md:text-5xl font-bold text-[#16192c] leading-tight">
             A-Plus Homework<br />
             Help For All
@@ -90,20 +93,8 @@ export default function Home() {
         </div>
 
         <div className="md:w-1/2 mt-6 md:mt-0 relative ">
-          <div className="relative h-[650px] w-[500px]">
+          <div className="relative h-[650px] w-[570px]">
             <Image src={business} alt="Professional person" fill className="object-cover rounded-lg" />
-            <div className="absolute -bottom-4 -left-4 bg-white p-3 rounded-lg shadow-md">
-              {/* <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-[#a414d5]" />
-                <span className="text-sm font-medium">Book Now</span>
-              </div> */}
-            </div>
-            {/* <div className="absolute -top-4 -right-4 bg-white p-3 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <div className="h-5 w-5 rounded-full bg-[#a414d5]"></div>
-                <span className="text-sm font-medium">AI Powered</span>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -118,10 +109,16 @@ export default function Home() {
       {/* <HowItWorks /> */}
 
       {/* Expert Section */}
-      <ExpertSection />
+      {/* <ExpertSection /> */}
 
       {/* Testimonials */}
-      <Testimonials />
+      {/* <Testimonials /> */}
+
+      <FeatureCard />
+
+      <ReviewCard />
+
+      <Offer />
 
       {/* FAQ Section */}
       <FAQ />

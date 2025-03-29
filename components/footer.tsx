@@ -1,4 +1,6 @@
 import Link from "next/link"
+import Image from "next/image"
+import crown from "@/public/Vector.png"
 
 export default function Footer() {
   return (
@@ -6,11 +8,13 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-[#a414d5] rounded-md flex items-center justify-center">
-                <span className="text-white font-bold">A</span>
-              </div>
-              <span className="font-semibold">Appointy</span>
+            <div className="relative flex items-center gap-2 mb-4">
+              <Image 
+                src={crown} 
+                alt="crown" 
+                className="absolute -top-5 -left-0 w-8 h-8" 
+              />
+              <span className="font-semibold ml-6">As Seen In</span>
             </div>
             <p className="text-gray-400 text-sm">
               AI-powered appointment scheduling platform connecting you with the perfect experts.
@@ -96,7 +100,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Appointy. All rights reserved.
+          © {new Date().getFullYear()} ExpertBuddy. All rights reserved.
         </div>
       </div>
     </footer>
