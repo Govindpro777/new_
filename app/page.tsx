@@ -19,12 +19,11 @@ import Experts from "@/components/Experts"
 import Offer from "@/components/Offer"
 import FeatureCard from "@/components/FeatureCard"
 import ReviewCard from "@/components/ReviewCard"
-
+import Home1 from "@/components/Home"
 export default function Home() {
   const [projectDescription, setProjectDescription] = useState('');
   const [humanExpertsOnly, setHumanExpertsOnly] = useState(false);
-  const [showSignupModal, setShowSignupModal] = useState(false)
-
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,70 +33,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f1efeb]">
-      {/* Hero Section */}
-      <section
-        className="mx-auto px-4 py-4 md:py-12 flex flex-col md:flex-row items-center relative"
-        style={{
-          backgroundImage: `url(${bgImage.src})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-       
-        <div className="md:w-1/2 space-y-6 ml-32 ">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#16192c] leading-tight">
-            A-Plus Homework<br />
-            Help For All
-          </h1>
-          <p className="text-lg text-[#16192c] max-w-md">
-            Get personalized expert assistance in any academic field. 100+ courses and programs covered.
-          </p>
-           <form onSubmit={handleSubmit} className="flex-col sm:flex-row gap-4 pt-4 text-[#16192c]">
-          <Input 
-            type="text" 
-            // placeholder="Describe your project briefly"
-            value={projectDescription}
-            onChange={(e) => setProjectDescription(e.target.value)}
-            className="w-[460px] h-[150px] pt-4 text-start align-top rounded-xl"
-          />
-          
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2 mt-4">
-              <Switch 
-                checked={humanExpertsOnly}
-                onCheckedChange={setHumanExpertsOnly}
-              />
-              <span className="text-[#16192c] font-bold font-sans text-lg">Human experts only</span>
-            </div>
-          </div>
-          
-          <div className="flex flex-col text-lg font-bold">
-            <p className="text-lg text-black mb-2 mt-4">
-              Get Offers 
-              <span className="text-purple-600"> For FREE & Pay Only </span>
-              When You Accept 
-              <br />
-              An Offer!
-            </p>
-            
-            <Button 
-              type="submit" 
-              className="w-[150px] rounded-2xl bg-purple-600 hover:bg-purple-700 text-black mt-4"
-            >
-              Find an Expert
-            </Button>
-          </div>
-        </form>
-        </div>
-
-        <div className="md:w-1/2 mt-6 md:mt-0 relative ">
-          <div className="relative h-[650px] w-[570px]">
-            <Image src={business} alt="Professional person" fill className="object-cover rounded-lg" />
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-[#f1efeb] ">
+  
+      <Home1 />
 
       <ReviewRatings />
 
@@ -105,25 +43,16 @@ export default function Home() {
 
       <Experts />
 
-      {/* How It Works Section */}
-      {/* <HowItWorks /> */}
-
-      {/* Expert Section */}
-      {/* <ExpertSection /> */}
-
-      {/* Testimonials */}
-      {/* <Testimonials /> */}
-
       <FeatureCard />
 
       <ReviewCard />
 
       <Offer />
 
-      {/* FAQ Section */}
+  
       <FAQ />
 
-      {/* Signup Modal */}
+   
       
     </div>
   )

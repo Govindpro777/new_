@@ -80,51 +80,122 @@
 
 // export default ClaimOfferPage;
 
+// import React, { useState } from 'react';
+// import { ChevronDown } from 'lucide-react';
+// import crown from "@/public/Vector.png"
+// import Image from 'next/image';
+// const ClaimOfferPage = () => {
+//   const [phoneNumber, setPhoneNumber] = useState('');
+
+//   return (
+//     <div className=" py-16 bg-[#f5f3ef] flex items-center justify-center p-4">
+//       <div className="bg-[#eabaff] w-full max-w-6xl h-[380px] rounded-3xl overflow-hidden flex flex-col md:flex-row p-14">
+//         {/* Left Section */}
+//         <div className="md:w-1/2 flex flex-col justify-between pr-14">
+//           <div>
+//             <div className="  mb-4">
+//               <Image src={crown} alt="crown" className="w-8 h-8 left-0"  />
+//               <h2 className="text-2xl font-bold text-publack ml-2"> Claim Your Offer</h2>
+//             </div>
+            
+//             <p className="text-black mb-6">
+//               Hello, we have a special ongoing offer for our new customers to avail 30% OFF & 150% Cashback on their first assignment with us. We are committed to delivering the premium service despite an affordable price. Enter your phone number below to get the coupon code. (we do not spam)
+//             </p>
+//           </div>
+          
+//           <div className="mt-auto">
+//             <p className="font-semibold text-black">Susan White</p>
+//             <p className="text-black-sm text-black">Head Of sales Departments</p>
+//           </div>
+//         </div>
+
+//         {/* Right Section */}
+//         <div className="md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
+//           <h1 className="text-3xl font-bold text-publack mb-4">
+//             30% OFF & 150% Cashback<br/>
+//             On Your First Order!
+//           </h1>
+          
+//           <p className="text-black mb-4">
+//             Type your WhatsApp Number to get an exclusive Code.
+//           </p>
+          
+//           <div className="mb-4">
+//             <div className="flex rounded-full border border-gray-300 bg-white overflow-hidden">
+//               <div className="relative flex items-center px-3 bg-white border-r border-gray-300">
+//                 <img src="/api/placeholder/24/16" alt="USA flag" className="w-6 h-4 mr-1" />
+//                 <span className="text-black">+1</span>
+//                 <ChevronDown className="ml-1 text-black" size={16} />
+//               </div>
+//               <input
+//                 type="tel"
+//                 placeholder="Enter your whatsapp number"
+//                 value={phoneNumber}
+//                 onChange={(e) => setPhoneNumber(e.target.value)}
+//                 className="flex-grow px-4 py-3 outline-none text-black bg-white"
+//               />
+//             </div>
+//           </div>
+          
+//           <button 
+//             className="w-full bg-[#a414d5] text-black py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold"
+//           >
+//             Get Offer on WhatsApp
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ClaimOfferPage;
+
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import crown from "@/public/Vector.png"
 import Image from 'next/image';
+
 const ClaimOfferPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   return (
-    <div className=" py-16 bg-[#f5f3ef] flex items-center justify-center p-4">
-      <div className="bg-[#eabaff] w-full max-w-6xl h-[380px] rounded-3xl overflow-hidden flex flex-col md:flex-row p-14">
+    <div className="py-8 sm:py-12 md:py-16 bg-[#f5f3ef] flex items-center justify-center p-4">
+      <div className="bg-[#eabaff] w-full max-w-6xl rounded-3xl overflow-hidden flex flex-col md:flex-row p-6 sm:p-8 md:p-10 lg:p-14 h-auto md:h-[380px]">
         {/* Left Section */}
-        <div className="md:w-1/2 flex flex-col justify-between pr-14">
+        <div className="w-full md:w-1/2 flex flex-col justify-between md:pr-6 lg:pr-14 mb-6 md:mb-0">
           <div>
-            <div className="  mb-4">
-              <Image src={crown} alt="crown" className="w-8 h-8 left-0"  />
-              <h2 className="text-2xl font-bold text-publack ml-2"> Claim Your Offer</h2>
+            <div className="flex items-center mb-4">
+              <Image src={crown} alt="crown" className="w-8 h-8 left-0" />
+              <h2 className="text-xl sm:text-2xl font-bold text-publack ml-2">Claim Your Offer</h2>
             </div>
             
-            <p className="text-black mb-6">
+            <p className="text-black mb-6 text-sm sm:text-base">
               Hello, we have a special ongoing offer for our new customers to avail 30% OFF & 150% Cashback on their first assignment with us. We are committed to delivering the premium service despite an affordable price. Enter your phone number below to get the coupon code. (we do not spam)
             </p>
           </div>
           
-          <div className="mt-auto">
+          <div className="mt-4 md:mt-auto">
             <p className="font-semibold text-black">Susan White</p>
-            <p className="text-black-sm text-black">Head Of sales Departments</p>
+            <p className="text-black-sm text-black text-sm">Head Of sales Departments</p>
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
-          <h1 className="text-3xl font-bold text-publack mb-4">
+        <div className="w-full md:w-1/2 flex flex-col justify-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-publack mb-4">
             30% OFF & 150% Cashback<br/>
             On Your First Order!
           </h1>
           
-          <p className="text-black mb-4">
+          <p className="text-black mb-4 text-sm sm:text-base">
             Type your WhatsApp Number to get an exclusive Code.
           </p>
           
           <div className="mb-4">
             <div className="flex rounded-full border border-gray-300 bg-white overflow-hidden">
-              <div className="relative flex items-center px-3 bg-white border-r border-gray-300">
-                <img src="/api/placeholder/24/16" alt="USA flag" className="w-6 h-4 mr-1" />
-                <span className="text-black">+1</span>
+              <div className="relative flex items-center px-2 sm:px-3 bg-white border-r border-gray-300">
+                <img src="/api/placeholder/24/16" alt="USA flag" className="w-5 h-3 sm:w-6 sm:h-4 mr-1" />
+                <span className="text-black text-sm sm:text-base">+1</span>
                 <ChevronDown className="ml-1 text-black" size={16} />
               </div>
               <input
@@ -132,13 +203,13 @@ const ClaimOfferPage = () => {
                 placeholder="Enter your whatsapp number"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                className="flex-grow px-4 py-3 outline-none text-black bg-white"
+                className="flex-grow px-3 sm:px-4 py-2 sm:py-3 outline-none text-black bg-white text-sm sm:text-base"
               />
             </div>
           </div>
           
           <button 
-            className="w-full bg-[#a414d5] text-black py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold"
+            className="w-full bg-[#a414d5] text-black py-2 sm:py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold text-sm sm:text-base"
           >
             Get Offer on WhatsApp
           </button>
