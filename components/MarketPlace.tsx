@@ -42,7 +42,7 @@ const TutorCard: React.FC<TutorCardProps> = ({ tutor, price, paymentInfo, respon
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border-b border-gray-200 bg-white">
+    <div className="flex flex-col mt-4 sm:flex-row items-start sm:items-center justify-between p-4 border-b border-gray-200 bg-white">
       <div className="flex items-start gap-3 w-full sm:w-auto mb-4 sm:mb-0">
         <div className="relative">
           <div className="w-12 h-12 rounded-full bg-gray-200"></div>
@@ -376,7 +376,7 @@ const TutoringMarketplace = () => {
 </div>
 
         
-        <div className="flex flex-wrap items-center justify-center gap-1 py-4 text-sm text-gray-600 bg-white">
+        <div className="flex rounded-xl flex-wrap items-center justify-center gap-1 py-4 text-sm text-gray-600 bg-white">
           <span className="px-2 my-1">« First</span>
           <span className="px-2 my-1">« Back</span>
           <span className="px-2 my-1">1</span>

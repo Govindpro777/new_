@@ -122,7 +122,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 w-full bg-white border-b border-gray-100">
         <div className="mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
-            <Image src={logo} alt="XpertBuddy Logo" width={100} height={40} className="w-20 h-8 sm:w-26 sm:h-10 ml-0 sm:ml-12" />
+            <Image src={logo} alt="XpertBuddy Logo" width={120} height={40} className="w-26 h-8 sm:w-26 sm:h-10 ml-0 sm:ml-12" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-2 lg:gap-6">
