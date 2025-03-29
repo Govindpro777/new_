@@ -1,22 +1,20 @@
+import React from 'react';
 import { Button } from "@/components/ui/button"
 import ProjectForm from "@/components/project-form"
 import ExpertSelection from "@/components/expert-selection"
 import BibliographyComponent from "@/components/bibliography-component"
+import ProjectProgressTracker from "@/components/projectProgress"
+import MarketPlace from "@/components/MarketPlace"
+
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="bg-[#faf3fd] py-12">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-[#16192c]">Projects</h1>
-          <p className="text-center text-[#6b7b93] mt-4 max-w-2xl mx-auto">
-            Submit your project details and get matched with the perfect expert. Our AI will help you find the best
-            match for your specific needs.
-          </p>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#f1efeb]">
+      <ProjectProgressTracker />
 
-      <div className="container mx-auto px-4 py-12">
+      <MarketPlace />
+
+      {/* <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
@@ -45,7 +43,7 @@ export default function ProjectsPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
