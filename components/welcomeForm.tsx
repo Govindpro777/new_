@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { X, Calendar } from 'lucide-react';
+import { X, Calendar as CalendarIcon } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 interface WelcomeModalProps {
   onClose: () => void;
@@ -9,7 +13,7 @@ interface WelcomeModalProps {
 const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
   const [budget, setBudget] = useState(65);
   const [wordCount, setWordCount] = useState(1100);
-  const [selectedDate, setSelectedDate] = useState("19 Dec,2024");
+  const [date, setDate] = useState<Date>();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -156,12 +160,25 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
               </div>
               <div>
                 <label className="block text-gray-700 font-medium mb-2">Deadline</label>
-                <div className="relative">
-                  <div className="border rounded-lg p-2 sm:p-3 flex items-center">
-                    <span className="text-sm sm:text-base">{selectedDate}</span>
-                    <Calendar className="ml-auto h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
-                  </div>
-                </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="border rounded-lg p-2 sm:p-3 flex items-center cursor-pointer hover:bg-gray-50">
+                      <span className="text-sm sm:text-base">
+                        {date ? format(date, "PPP") : "Pick a date"}
+                      </span>
+                      <CalendarIcon className="ml-auto h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="end">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      initialFocus
+                      className="rounded-md border"
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           </div>
